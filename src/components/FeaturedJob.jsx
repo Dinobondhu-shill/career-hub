@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const FeaturedJob = ({job}) => {
-  const {logo, job_title, company_name, remote_or_onsite, location, job_type, salary} = job;
+  const {id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary} = job;
   return (
     <div className='font-manrope border-2 rounded-xl p-10'>
       <img src={logo} alt="" />
@@ -15,7 +16,9 @@ const FeaturedJob = ({job}) => {
         <span >{location}</span>
         <span>{salary}</span>
       </div>
-      <button className='font-extrabold text-xl px-4 py-2 rounded-xl bg-[#7E90FE] hover:bg-[#7E90FE]'>View Details</button>
+    <Link to={`/job/${id}`}>
+    <button className='font-extrabold text-xl px-4 py-2 rounded-xl bg-[#7E90FE] hover:bg-[#7E90FE]'>View Details</button>
+    </Link>
       
     </div>
   );
@@ -23,11 +26,11 @@ const FeaturedJob = ({job}) => {
 FeaturedJob.propTypes = {
   job:PropTypes.object.isRequired,
   logo: PropTypes.string.isRequired,
-  job_title: PropTypes.string.isRequired,
-  company_name: PropTypes.string.isRequired,
-  remote_or_onsite: PropTypes.string.isRequired,
+  job_title: PropTypes.string,
+  company_name: PropTypes.string,
+  remote_or_onsite: PropTypes.string,
   location: PropTypes.string,
-  job_type: PropTypes.string.isRequired,
+  job_type: PropTypes.string,
   salary: PropTypes.string,
 };
 

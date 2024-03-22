@@ -8,6 +8,8 @@ import Applied from './components/Applied';
 import Statistics from './components/Statistics';
 import Blogs from './components/Blogs';
 import ErrorPage from './components/ErrorPage';
+import JobDetails from './JobDetails';
+
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,12 @@ const router = createBrowserRouter([
       {
         path:'/blogs',
         element:<Blogs></Blogs>
-      }
+      },
+      {
+        path:'/job:id',
+        element:<JobDetails></JobDetails>,
+        loader:()=>('../jobs.json')
+      },
     ]
   },
 ]);
