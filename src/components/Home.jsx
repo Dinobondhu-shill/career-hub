@@ -1,10 +1,14 @@
 import Banner from "./Banner";
+import Categorylist from "./Categorylist";
+import FeaturedJobs from "./FeaturedJobs";
 
 
 const Home = () => {
   return (
-    <div className="bg-[#F9F9F9] px-44">
+    <div className=" space-y-24">
       <Banner></Banner>
+      <Categorylist></Categorylist>
+      <FeaturedJobs></FeaturedJobs>
     </div>
   );
 };
