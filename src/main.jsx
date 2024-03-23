@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import Root from './components/Root';
@@ -34,9 +34,9 @@ const router = createBrowserRouter([
         element:<Blogs></Blogs>
       },
       {
-        path:'/job:id',
+        path:'/job/:id',
         element:<JobDetails></JobDetails>,
-        loader:()=>('../jobs.json')
+        
       },
     ]
   },
