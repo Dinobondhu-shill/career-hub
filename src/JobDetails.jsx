@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveApplication } from "./components/saveApply";
 
 
 const JobDetails = () => {
@@ -15,12 +18,17 @@ const selectedJob = data.find(job=> job.id === idInt)
 setJob(selectedJob)
 })
 }
-,[idInt])
+,[idInt]);
+
+const handleApplyButton=()=>{
+  saveApplication(idInt)
+  toast.success('Thanks for applying')
+}
 
 return (
 <div>
-  <div className="font-manrope font-extrabold text-4xl pt-24 text-center bg-[#F9F9F9]">
-    <h3>Hello From Job Details</h3>
+  <div className="font-manrope font-extrabold text-4xl pt-20 text-center bg-[#F9F9F9]">
+    <h3>Job Details</h3>
     <img src={"/bg1.png"} alt="" />
     <img src={"/bg2.png"} alt="" className="absolute top-0 right-0" />
   </div>
@@ -52,6 +60,10 @@ return (
             className="font-extrabold text-[16px] text-black">Address:</span> {jobs.contact_information.address}</p>
       </>
       )}
+    <button
+    onClick={handleApplyButton}
+    className=" text-white font-manrope font-extrabold text-xl w-full py-3 mt-6 rounded-xl bg-[#7E90FE] hover:bg-[#7E90FE]">Apply Now</button>
+     <ToastContainer />
     </div>
   </div>
 </div>
